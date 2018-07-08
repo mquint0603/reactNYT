@@ -35,8 +35,11 @@
 .saved-title {
   display: inline-block;
 }
+
 .del-btn {
   float: right;
 }
 
-
+body {
+  background: rgb(186, 207, 231);
+}

@@ -3,8 +3,8 @@ import React from "react";
 const SearchForm = props => (
     <form className="search">
         <div className="form-group row text-left">
-            <label htmlFor="topic" className="col-sm-2 col-form-label">Topic:</label>
-            <div className="col-sm-10">
+            <label htmlFor="topic" className="col-md-2 col-form-label">Topic:</label>
+            <div className="col-md-10">
                 <input
                     value={props.topic}
                     onChange={props.handleInputChange}
@@ -16,8 +16,8 @@ const SearchForm = props => (
             </div>
         </div>
         <div className="form-group row text-left">
-            <label htmlFor="beginDate" className="col-sm-2 col-form-label">Start Year:</label>
-            <div className="col-sm-10">
+            <label htmlFor="beginDate" className="col-md-2 col-form-label">Start Year:</label>
+            <div className="col-md-10">
                 <input
                     value={props.start}
                     onChange={props.handleInputChange}
@@ -29,8 +29,8 @@ const SearchForm = props => (
             </div>
         </div>
         <div className="form-group row text-left">
-            <label htmlFor="endDate" className="col-sm-2 col-form-label">End Year:</label>
-            <div className="col-sm-10">
+            <label htmlFor="endDate" className="col-md-2 col-form-label">End Year:</label>
+            <div className="col-md-10">
                 <input
                     value={props.end}
                     onChange={props.handleInputChange}

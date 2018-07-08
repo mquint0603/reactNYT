@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import API from "../utils/API";
 import SearchForm from "./SearchForm"
-import Result from "./Result"
+import ResultCard from "./ResultCard"
+import Saved from "./Saved"
 
 class Search extends Component {
     state = {
@@ -80,48 +81,18 @@ class Search extends Component {
                         </div>
                     </div>
                 </div>
-                <br/>
-                <div className="row justify-content-center results">
-                    <div className="col-md-10">
-                        <div className="card">
-                            <h5 className="card-header">Results</h5>
-                            <div className="card-body text-left">  
-                                {this.state.results.map(result => (
-                                    <Result
-                                        key = {result._id}
-                                        id = {result._id}
-                                        headline = {result.headline.main}
-                                        author = {result.byline.original}
-                                        date = {result.pub_date}
-                                        url = {result.web_url}
-                                        snippet = {result.snippet}
-                                        saveArticle = {this.saveArticle}
-                                    />
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br/>
-                <div className="row justify-content-center saved">
-                    <div className="col-md-10">
-                        <div className="card">
-                            <h5 className="card-header">Saved</h5>
-                            <div className="card-body text-left">  
-                                {this.state.saved.map(article => (
-                                    <div>
 
-                                        <a href={article.url}>
-                                            <h5 className="saved-title">{article.title}</h5>
-                                        </a>
-                                        <button className="btn btn-danger btn-sm del-btn" id={article._id} onClick={() => this.deleteArticle(article._id)}>Delete</button>
-                                        <hr/>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <br/>
+                
+                <ResultCard
+                    results = {this.state.results}
+                    saveArticle = {this.saveArticle}
+                />
+                <br/>
+                <Saved
+                    saved = {this.state.saved}
+                    deleteArticle = {this.deleteArticle}
+                />
             
             </div>
         )
