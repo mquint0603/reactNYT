@@ -2,7 +2,8 @@ import axios from "axios";
 
 export default {
     getNYTArticles: function (topic, begin, end) {
-        return axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + topic + "&begin_date=" + begin + "&end_date=" + end
+        return axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + topic + "&begin_date=" + 
+        begin + "0101" + "&end_date=" + end + "0101"
         + "&api-key=5831fb50496e4c05b019f9f7649d5524")
     },
     // Gets all articles

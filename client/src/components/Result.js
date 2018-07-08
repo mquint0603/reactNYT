@@ -7,7 +7,7 @@ const Result = props => (
             <h5 className="title">{props.headline}</h5>
         </a>
         <p className="snippet">{props.snippet}</p>
-        <button className="btn btn-success save-btn" id={props.id} onClick={() => props.saveArticle(props.headline, props.author, props.url, props.date)}>Save</button>
+        <button className="btn btn-success btn-sm save-btn" id={props.id} onClick={() => props.saveArticle(props.headline, props.author, props.url, props.date)}>Save</button>
         <hr/>
     </div>
 

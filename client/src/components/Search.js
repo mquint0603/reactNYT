@@ -28,7 +28,24 @@ class Search extends Component {
         this.setState({[name]: value});
     }
 
-    // getSavedArticles 
+    loadSaved = () => {
+        API.getSaved()
+        .then(res => 
+            this.setState({saved: res.data})
+        )
+        .catch(err => console.log(err));
+    }
+
+    deleteArticle = id => {
+        API.deleteArticle(id)
+        .then (res => this.loadSaved())
+        .catch(err => console.log(err));
+    }
+
+
+    componentDidMount(){
+        this.loadSaved();
+    }
 
     saveArticle = (title, author, url, date) => {
         console.log(title, author, url, date)
@@ -39,7 +56,7 @@ class Search extends Component {
             date: date
         }
         API.saveArticle(articleData)
-        .then(res => console.log("saved article", res))
+        .then(res => this.loadSaved())
         .catch(err => console.log(err))
     }
 
@@ -48,7 +65,7 @@ class Search extends Component {
             <div className="container">
             
                 <div className="row justify-content-center">
-                    <div className="col-sm-10">
+                    <div className="col-md-10">
                         <div className="card">
                             <h5 className="card-header">Search</h5>
                             <div className="card-body">  
@@ -65,7 +82,7 @@ class Search extends Component {
                 </div>
                 <br/>
                 <div className="row justify-content-center results">
-                    <div className="col-sm-10">
+                    <div className="col-md-10">
                         <div className="card">
                             <h5 className="card-header">Results</h5>
                             <div className="card-body text-left">  
@@ -80,6 +97,26 @@ class Search extends Component {
                                         snippet = {result.snippet}
                                         saveArticle = {this.saveArticle}
                                     />
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div className="row justify-content-center saved">
+                    <div className="col-md-10">
+                        <div className="card">
+                            <h5 className="card-header">Saved</h5>
+                            <div className="card-body text-left">  
+                                {this.state.saved.map(article => (
+                                    <div>
+
+                                        <a href={article.url}>
+                                            <h5 className="saved-title">{article.title}</h5>
+                                        </a>
+                                        <button className="btn btn-danger btn-sm del-btn" id={article._id} onClick={() => this.deleteArticle(article._id)}>Delete</button>
+                                        <hr/>
+                                    </div>
                                 ))}
                             </div>
                         </div>

@@ -31,3 +31,12 @@
   max-height: 300px;
   overflow: scroll;
 }
+
+.saved-title {
+  display: inline-block;
+}
+.del-btn {
+  float: right;
+}
+
+

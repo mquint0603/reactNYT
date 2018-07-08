@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import Search from './components/Search'
-import Saved from './components/Saved'
+// import Saved from './components/Saved'
 import './App.css';
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
         <Search/>
         <br/>
-        <Saved/>
+        {/* <Saved/> */}
       </div>
     );
   }

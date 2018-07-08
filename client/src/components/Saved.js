@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 
+
+const Saved = props => {
+    
+}
 class Saved extends Component {
     state = {
         articles: []
